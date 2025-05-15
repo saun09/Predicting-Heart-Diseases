@@ -29,14 +29,11 @@ descriptions = {
 
 st.title('Heart Disease Prediction')
 
-# User input collection
-age = st.slider('Age', 1, 120, 50)
+age = st.slider('Age', 1, 100, 50)
 
-# Gender dropdown with mapping
 gender = st.selectbox('Gender', ['Male', 'Female'])
 sex = 1 if gender == 'Male' else 0
 
-# For other features
 cp = st.selectbox(f"Chest pain type (cp): {descriptions['cp']}", [0,1,2,3])
 trestbps = st.number_input(f"Resting blood pressure (trestbps): {descriptions['trestbps']}", min_value=80, max_value=200, value=120)
 chol = st.number_input(f"Serum cholesterol (chol): {descriptions['chol']}", min_value=100, max_value=600, value=200)
@@ -49,11 +46,9 @@ slope = st.selectbox(f"Slope of ST segment (slope): {descriptions['slope']}", [0
 ca = st.selectbox(f"Number of major vessels (ca): {descriptions['ca']}", [0,1,2,3])
 thal = st.selectbox(f"Thalassemia (thal): {descriptions['thal']}", [1,2,3])
 
-# Collect inputs in array for model
 input_features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalch,
                             exang, oldpeak, slope, ca, thal]])
 
-# Model choice dropdown
 model_choice = st.selectbox('Select Model', list(models.keys()))
 
 if st.button('Predict'):
