@@ -80,7 +80,7 @@ Easiest to interpret and visualize, but has the least robust performance among t
 - **Goal:** To predict the presence of heart disease based on clinical features using machine learning.  
 - **Data:** Clinical data with features such as age, sex, chest pain type, resting blood pressure, cholesterol, fasting blood sugar, and more.  
 - **Models Used:** Logistic Regression, Support Vector Classifier, Decision Tree.  
-- **Tools & Libraries:** Python, scikit-learn, Streamlit (for the interactive app), joblib (for saving/loading models).
+- **Tools & Libraries:** Python, scikit-learn, Streamlit, joblib.
 
 ---
 
