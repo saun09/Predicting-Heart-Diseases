@@ -4,7 +4,7 @@ import numpy as np
 
 # Load your saved models and scaler
 models = {
-    'Logistic Regression': joblib.load('logistic_model.pkl'),
+    'Logistic Regression': joblib.load('logistic_regression_model.pkl'),
     'Decision Tree': joblib.load('decision_tree_model.pkl'),
     'KNN': joblib.load('knn_model.pkl'),
     'SVM': joblib.load('svm_model.pkl'),
