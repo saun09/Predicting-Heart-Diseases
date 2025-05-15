@@ -99,7 +99,7 @@ def main():
         st.write(f"The model predicts **{result}** with a confidence of {max_prob:.2f}.")
 
         if max_prob < 0.6:
-            st.warning("The prediction confidence is low, please consider consulting a medical professional for further diagnosis.")
+            st.warning("The prediction confidence is low, please consider consulting a medical professional for further diagnosis.-This is just a project model - it can make mistakes :) ")
         else:
             st.info("The model is fairly confident in this prediction based on the input values.")
 
@@ -145,18 +145,22 @@ def main():
         st.write("### Risk Factor Visualization")
         st.write("Red bars indicate values outside the normal range (potential risk factors).")
 
-        import matplotlib.pyplot as plt
+       import matplotlib.pyplot as plt
 
-        fig, ax = plt.subplots()
-        bars = ax.bar(risk_df['Feature'], risk_df['Value'], color=bar_colors)
-        ax.set_ylim(0, max(risk_df['Value'].max() * 1.2, 10))
-        ax.set_ylabel("Value")
+fig, ax = plt.subplots(figsize=(8, 5))  # slightly wider figure
+bars = ax.bar(risk_df['Feature'], risk_df['Value'], color=bar_colors)
+ax.set_ylim(0, max(risk_df['Value'].max() * 1.2, 10))
+ax.set_ylabel("Value")
 
-        for bar, status in zip(bars, risk_df['Status']):
-            height = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2, height, status, ha='center', va='bottom')
+plt.xticks(rotation=45, ha='right', fontsize=10)
 
-        st.pyplot(fig)
+for bar, status in zip(bars, risk_df['Status']):
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, height, status, ha='center', va='bottom', fontsize=9)
+
+plt.tight_layout() 
+st.pyplot(fig)
+
 
 if __name__ == "__main__":
     main()
