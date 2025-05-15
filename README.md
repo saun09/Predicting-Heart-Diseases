@@ -13,18 +13,12 @@ This section provides a detailed comparative analysis of the three classifiers b
 ## Metrics Summary
 
 ### 1. Logistic Regression
-
-- **Confusion Matrix:**  
-  - True Positives (TP): 89  
-  - True Negatives (TN): 67  
-  - False Positives (FP): 15  
-  - False Negatives (FN): 13  
 - **Accuracy:** 0.8478  
 - **Precision:** 0.8558  
 - **Recall:** 0.8725  
 - **F1 Score:** 0.8641  
 - **AUC (ROC):** 0.90  
-- **Conclusion:** Best overall performance, with a balanced precision and recall, indicating strong generalization capability.
+Best overall performance, with a balanced precision and recall, indicating strong generalization capability.
 
 #### Confusion Matrix Image  
 ![logisticRegression-ConfusionMatrix](https://github.com/user-attachments/assets/f96a974c-796e-49f8-b536-3e0d3629a3e2)
@@ -37,51 +31,46 @@ This section provides a detailed comparative analysis of the three classifiers b
 
 ---
 
-### 2. Support Vector Classifier (SVC)
-
-- **Confusion Matrix:**  
-  - TP: 83  
-  - TN: 55  
-  - FP: 27  
-  - FN: 19  
+### 2. Support Vector Classifier (SVC) 
 - **Accuracy:** 0.75  
 - **Precision:** 0.7545  
 - **Recall:** 0.8137  
 - **F1 Score:** 0.7830  
 - **AUC (ROC):** 0.78  
-- **Conclusion:** Strong recall performance but slightly lower precision, making it more sensitive but prone to some false positives.
+Strong recall performance but slightly lower precision, making it more sensitive but prone to some false positives.
 
 #### Confusion Matrix Image  
-`![SVC Confusion Matrix](path/to/svc_confusion_matrix.png)`
+![SVC-ConfusionMatrix](https://github.com/user-attachments/assets/e27870b5-7b44-4f8d-9106-a72e97685d43)
 
 #### ROC Curve Image  
-`![SVC ROC Curve](path/to/svc_roc_curve.png)`
+![SVC-ROC](https://github.com/user-attachments/assets/3020e250-118e-4404-9e51-b4a8fa6c7aa8)
+
+#### Precision Recall Curve Image 
+![SVC-PRC](https://github.com/user-attachments/assets/532cd341-83bc-4f88-8036-0560ddd60fb0)
 
 ---
 
 ### 3. Decision Tree
 
-- **Confusion Matrix:**  
-  - TP: 78  
-  - TN: 58  
-  - FP: 24  
-  - FN: 24  
 - **Accuracy:** 0.7391  
 - **Precision:** 0.7647  
 - **Recall:** 0.7647  
 - **F1 Score:** 0.7647  
 - **AUC (ROC):** 0.74  
-- **Conclusion:** Easiest to interpret and visualize, but has the least robust performance among the three.
+Easiest to interpret and visualize, but has the least robust performance among the three.
 
 #### Confusion Matrix Image  
-`![Decision Tree Confusion Matrix](path/to/decision_tree_confusion_matrix.png)`
+![DecisionTree-ConfusionMx](https://github.com/user-attachments/assets/6784e14b-2362-41f4-81a1-3964d398c942)
 
 #### ROC Curve Image  
-`![Decision Tree ROC Curve](path/to/decision_tree_roc_curve.png)`
+![DecisionTree-ROC](https://github.com/user-attachments/assets/1b9daf98-7c5e-4c56-ab7f-9771c8830ad7)
+
+#### Precision Recall Curve Image 
+![DecisionTree-PRC](https://github.com/user-attachments/assets/cf986faf-d871-4e0f-a41b-0a1c846f13e2)
 
 ---
 
-## Final Verdict
+## Comparison Table
 
 | Metric         | Logistic Regression | Support Vector Classifier (SVC) | Decision Tree   |
 |----------------|---------------------|---------------------------------|-----------------|
@@ -102,9 +91,14 @@ This section provides a detailed comparative analysis of the three classifiers b
 
 ---
 
-## How to Use the App
+## Try it out on:
+https://predicting-heart-diseases-saundarya.streamlit.app/
 
-1. Clone the repository.  
-2. Install dependencies:  
-   ```bash
-   pip install -r requirements.txt
+
+![image](https://github.com/user-attachments/assets/00d17fed-ddd7-4303-884a-db5d39395e6b)
+![image](https://github.com/user-attachments/assets/bc4e7645-19b3-45a3-9ede-5452d3ff84f7)
+
+![image](https://github.com/user-attachments/assets/254289f1-0106-4ece-8ea9-342759a358bf)
+![image](https://github.com/user-attachments/assets/d4da71da-191e-4604-a6d3-d3cae9c405b7)
+
+
