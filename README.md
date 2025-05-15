@@ -86,13 +86,13 @@ Easiest to interpret and visualize, but has the least robust performance among t
 
 ## Try it out on:  
 https://predicting-heart-diseases-saundarya.streamlit.app/
-
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/00d17fed-ddd7-4303-884a-db5d39395e6b" width="45%" alt="App Screenshot 1" />
-  <img src="https://github.com/user-attachments/assets/bc4e7645-19b3-45a3-9ede-5452d3ff84f7" width="45%" alt="App Screenshot 2" />
+  <img src="https://github.com/user-attachments/assets/00d17fed-ddd7-4303-884a-db5d39395e6b" width="45%" height="300px" style="object-fit: contain;" alt="App Screenshot 1" />
+  <img src="https://github.com/user-attachments/assets/bc4e7645-19b3-45a3-9ede-5452d3ff84f7" width="45%" height="300px" style="object-fit: contain;" alt="App Screenshot 2" />
 </div>
 
 <div align="center" style="margin-top:10px;">
-  <img src="https://github.com/user-attachments/assets/254289f1-0106-4ece-8ea9-342759a358bf" width="45%" alt="App Screenshot 3" />
-  <img src="https://github.com/user-attachments/assets/d4da71da-191e-4604-a6d3-d3cae9c405b7" width="45%" alt="App Screenshot 4" />
+  <img src="https://github.com/user-attachments/assets/254289f1-0106-4ece-8ea9-342759a358bf" width="45%" height="300px" style="object-fit: contain;" alt="App Screenshot 3" />
+  <img src="https://github.com/user-attachments/assets/d4da71da-191e-4604-a6d3-d3cae9c405b7" width="45%" height="300px" style="object-fit: contain;" alt="App Screenshot 4" />
 </div>
+
