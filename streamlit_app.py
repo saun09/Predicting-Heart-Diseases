@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Load saved models and scaler
 models = {
@@ -107,9 +108,6 @@ def main():
 
         st.subheader("Feature Analysis")
 
-        # Define healthy or normal ranges (just an example, adjust as needed)
-        # Coloring red if outside normal ranges to highlight risk
-
         def color_value(val, low, high):
             if val < low:
                 return '🔴 Low'
@@ -128,7 +126,6 @@ def main():
 
         feature_status = {k: color_value(v[0], v[1], v[2]) for k, v in feature_data.items()}
 
-
         risk_df = pd.DataFrame({
             'Feature': list(feature_data.keys()),
             'Value': [v[0] for v in feature_data.values()],
@@ -145,9 +142,7 @@ def main():
         st.write("### Risk Factor Visualization")
         st.write("Red bars indicate values outside the normal range (potential risk factors).")
 
-       import matplotlib.pyplot as plt
-
-        fig, ax = plt.subplots(figsize=(8, 5))  # slightly wider figure
+        fig, ax = plt.subplots(figsize=(8, 5))
         bars = ax.bar(risk_df['Feature'], risk_df['Value'], color=bar_colors)
         ax.set_ylim(0, max(risk_df['Value'].max() * 1.2, 10))
         ax.set_ylabel("Value")
@@ -158,9 +153,8 @@ def main():
             height = bar.get_height()
             ax.text(bar.get_x() + bar.get_width()/2, height, status, ha='center', va='bottom', fontsize=9)
 
-        plt.tight_layout() 
+        plt.tight_layout()
         st.pyplot(fig)
 
-
-        if __name__ == "__main__":
-            main()
+if __name__ == "__main__":
+    main()
