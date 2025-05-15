@@ -147,20 +147,20 @@ def main():
 
        import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots(figsize=(8, 5))  # slightly wider figure
-bars = ax.bar(risk_df['Feature'], risk_df['Value'], color=bar_colors)
-ax.set_ylim(0, max(risk_df['Value'].max() * 1.2, 10))
-ax.set_ylabel("Value")
+        fig, ax = plt.subplots(figsize=(8, 5))  # slightly wider figure
+        bars = ax.bar(risk_df['Feature'], risk_df['Value'], color=bar_colors)
+        ax.set_ylim(0, max(risk_df['Value'].max() * 1.2, 10))
+        ax.set_ylabel("Value")
 
-plt.xticks(rotation=45, ha='right', fontsize=10)
+        plt.xticks(rotation=45, ha='right', fontsize=10)
 
-for bar, status in zip(bars, risk_df['Status']):
-    height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2, height, status, ha='center', va='bottom', fontsize=9)
+        for bar, status in zip(bars, risk_df['Status']):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2, height, status, ha='center', va='bottom', fontsize=9)
 
-plt.tight_layout() 
-st.pyplot(fig)
+        plt.tight_layout() 
+        st.pyplot(fig)
 
 
-if __name__ == "__main__":
-    main()
+        if __name__ == "__main__":
+            main()
