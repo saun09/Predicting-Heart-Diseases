@@ -4,13 +4,13 @@ An AI-driven project for predicting heart disease risk using multiple machine le
 
 ---
 
-## 🔍 Model Performance Evaluation
+##  Model Performance Evaluation
 
 This section provides a detailed comparative analysis of the three classifiers based on evaluation metrics and performance curves.
 
 ---
 
-## 📊 Metrics Summary
+## Metrics Summary
 
 ### 1. Logistic Regression
 
@@ -27,10 +27,13 @@ This section provides a detailed comparative analysis of the three classifiers b
 - **Conclusion:** Best overall performance, with a balanced precision and recall, indicating strong generalization capability.
 
 #### Confusion Matrix Image  
-`![Logistic Regression Confusion Matrix](path/to/logistic_regression_confusion_matrix.png)`
+![logisticRegression-ConfusionMatrix](https://github.com/user-attachments/assets/f96a974c-796e-49f8-b536-3e0d3629a3e2)
 
 #### ROC Curve Image  
-`![Logistic Regression ROC Curve](path/to/logistic_regression_roc_curve.png)`
+![logisticRegression-ROC_Curve](https://github.com/user-attachments/assets/99c9c014-7869-4337-96e2-da399bf0e88a)
+
+#### Precision Recall Curve Image 
+![logisticRegression-PrecisionCurve](https://github.com/user-attachments/assets/26575d83-2c73-4dee-a97a-6afdaad98948)
 
 ---
 
