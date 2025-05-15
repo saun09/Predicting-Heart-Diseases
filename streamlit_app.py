@@ -3,6 +3,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
+# Load saved models and scaler
 models = {
     'Logistic Regression': joblib.load('logistic_regression_model.pkl'),
     'Decision Tree': joblib.load('decision_tree_model.pkl'),
@@ -18,7 +19,6 @@ def main():
 
     age = st.slider('Age (years)', 20, 100, 55)
     sex = st.selectbox('Gender', ['Male', 'Female'])
-    dataset = st.text_input('Dataset Source (optional)', '')  # Can be ignored or removed if not used
     cp = st.selectbox('Chest Pain Type (cp)',
                       ['Typical Angina', 'Atypical Angina', 'Non-anginal Pain', 'Asymptomatic'])
     trestbps = st.number_input('Resting Blood Pressure (mm Hg)', 80, 200, 120)
@@ -36,7 +36,6 @@ def main():
     model_name = st.selectbox('Choose Model', list(models.keys()))
 
     if st.button('Predict'):
-        # Map categorical inputs to numeric based on your dataset encoding
 
         sex_num = 1 if sex == 'Male' else 0
 
@@ -73,7 +72,6 @@ def main():
         }
         thal_num = thal_dict[thal]
 
-        # Construct feature array in order expected by the model
         features = np.array([[age, sex_num, cp_num, trestbps, chol,
                               fbs_num, restecg_num, thalch, exang_num,
                               oldpeak, slope_num, ca, thal_num]])
@@ -85,9 +83,11 @@ def main():
         prediction = model.predict(features_scaled)[0]
         probabilities = model.predict_proba(features_scaled)[0]
 
+        # Show prediction
         result = 'Disease' if prediction == 1 else 'No Disease'
         st.write(f"### Prediction: **{result}**")
 
+        # Show probabilities bar chart
         prob_df = pd.DataFrame({
             'Class': ['No Disease', 'Disease'],
             'Probability': probabilities
@@ -102,6 +102,61 @@ def main():
             st.warning("The prediction confidence is low, please consider consulting a medical professional for further diagnosis.")
         else:
             st.info("The model is fairly confident in this prediction based on the input values.")
+
+        # Additional feature-based risk factor visualization
+
+        st.subheader("Feature Analysis")
+
+        # Define healthy or normal ranges (just an example, adjust as needed)
+        # Coloring red if outside normal ranges to highlight risk
+
+        def color_value(val, low, high):
+            if val < low:
+                return '🔴 Low'
+            elif val > high:
+                return '🔴 High'
+            else:
+                return '🟢 Normal'
+
+        feature_data = {
+            'Resting BP (mm Hg)': (trestbps, 90, 120),
+            'Cholesterol (mg/dl)': (chol, 125, 200),
+            'Max Heart Rate Achieved': (thalch, 100, 170),
+            'ST Depression (oldpeak)': (oldpeak, 0, 1),
+            'Number of Major Vessels': (ca, 0, 1),
+        }
+
+        feature_status = {k: color_value(v[0], v[1], v[2]) for k, v in feature_data.items()}
+
+
+        risk_df = pd.DataFrame({
+            'Feature': list(feature_data.keys()),
+            'Value': [v[0] for v in feature_data.values()],
+            'Status': [feature_status[k] for k in feature_data.keys()]
+        })
+
+        bar_colors = []
+        for status in risk_df['Status']:
+            if 'High' in status or 'Low' in status:
+                bar_colors.append('red')
+            else:
+                bar_colors.append('green')
+
+        st.write("### Risk Factor Visualization")
+        st.write("Red bars indicate values outside the normal range (potential risk factors).")
+
+        import matplotlib.pyplot as plt
+
+        fig, ax = plt.subplots()
+        bars = ax.bar(risk_df['Feature'], risk_df['Value'], color=bar_colors)
+        ax.set_ylim(0, max(risk_df['Value'].max() * 1.2, 10))
+        ax.set_ylabel("Value")
+
+        for bar, status in zip(bars, risk_df['Status']):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2, height, status, ha='center', va='bottom')
+
+        st.pyplot(fig)
 
 if __name__ == "__main__":
     main()
